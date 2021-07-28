@@ -14,6 +14,10 @@ const Login=()=>{
           alert('Good');
           history.push('/loginAsAdmin')
       }
+      else if(username=="user" && password=="user123")
+      {
+        history.push('/loginAsUser')
+      }
       else{
           console.log("No")
       }

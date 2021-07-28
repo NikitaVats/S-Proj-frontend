@@ -6,16 +6,16 @@ import base_url from "../bootapi"
 
 const CreateNewCompany=()=>{ 
     const history=useHistory();
-    const [comp,setComp]=useState();
-    const [sector,setSector]=useState();
+    const [comp,setComp]=useState({});
+   
     const fun=(e)=>{
         e.preventDefault();
-       fun1(comp,sector);
-       
+      fun1(comp);
+       console.log(comp);
        history.push('/showComp');
     }
-    const fun1=(data,datas)=>{
-        axios.post(`${base_url}/uploadcomp`,data).then(
+    const fun1=(data)=>{
+        axios.post(`${base_url}/api3/uploadcomp`,data).then(
             (response)=>{
               console.log(response);
               console.log("Success");
@@ -23,14 +23,7 @@ const CreateNewCompany=()=>{
                console.log(error);
             }
         )
-        axios.post(`${base_url}/uploadsector`,datas).then(
-          (response)=>{
-            console.log(response);
-            console.log("Success");
-          },(error)=>{
-             console.log(error);
-          }
-      )
+       
     }
     return(
         <div class="container">
@@ -44,12 +37,22 @@ const CreateNewCompany=()=>{
     <label for="turnover">Turnover</label>
       <Input type="text" name="turnover"  id="turnover" placeholder="Enter here"  onChange={(e)=>{
     setComp({...comp,turnover:e.target.value })  }}></Input>
+    <label for="stockexchange">Stock Exchange Type</label>
+      <select id="stockexchange" name="stockexchange" onChange={(e)=>{
+    setComp({...comp,stockexchange:e.target.value })  }}>
+        <option value="BSE">BSE</option>
+        <option value="MSE">MSE</option>
+        <option value="BSE&MSE">BSE & MSE</option>
+      </select>
+      <label for="code">Company Code</label>
+      <Input type="text" name="code"  id="code" placeholder="Enter here"  onChange={(e)=>{
+    setComp({...comp,code:e.target.value })  }}></Input>
     <label for="sector_name">Sector Name</label>
       <Input type="text" name="sector_name"  id="sector_name" placeholder="Enter here"  onChange={(e)=>{
-    setSector({...sector,sector_name:e.target.value })  }}></Input>
+    setComp({...comp,sector_name:e.target.value })  }}></Input>
     <label for="brief">Sector Brief</label>
       <Input type="text" name="brief"  id="brief" placeholder="Enter here"  onChange={(e)=>{
-    setSector({...sector,brief:e.target.value })  }}></Input>
+    setComp({...comp,brief:e.target.value })  }}></Input>
       <label for="ceo">CEO</label>
       <Input type="text" name="ceo" id="ceo" placeholder="Enter here" onChange={(e)=>{
     setComp({...comp,ceo:e.target.value })  }}></Input>

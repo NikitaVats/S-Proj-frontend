@@ -10,10 +10,10 @@ return(
         <Link to='/manageCompany'><h3>Manage Company</h3></Link>
     </div>
     <div class="col-3">
-        <Link to='/manageExchange'><h3>Manage Exchange</h3></Link>
+        <Link to='/manageexchange'><h3>Manage Exchange</h3></Link>
     </div>
     <div class="col-3">
-        <Link to='/updateIpoDetails'><h3>Update IPO Details</h3></Link>
+        <Link to='/manageipo'><h3>Update IPO Details</h3></Link>
     </div>
 
 

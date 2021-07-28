@@ -14,7 +14,7 @@ const Summary=()=>{
     }
     const getData=()=>{
         
-        axios.get(`${base_url}/comp`).then(
+        axios.get(`${base_url}/api3/comp1`).then(
             (response)=>{
               console.log(response.data);
               setComp1(response.data[0]);

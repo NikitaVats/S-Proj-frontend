@@ -20,10 +20,11 @@ const Signup=()=>{
    postData(user);
     }
     const postData=(data)=>{
-     axios.post(`${base_url}/$  {type}`,data).then(
+     axios.post(`${base_url}/api5/${type}`,data).then(
          (response)=>{
            console.log(response);
            console.log("Success");
+           alert("Registration Succesful")
          },(error)=>{
             console.log(error);
          }
